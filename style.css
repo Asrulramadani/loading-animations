@@ -1,0 +1,463 @@
+:root {
+    --primaryColor : rgb(0, 238, 255);
+}
+
+/* Font */
+@font-face {
+    font-family: 'Roboto';
+    src: url('font/Roboto.ttf') format('truetype');
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body {
+    background-color: rgb(0, 0, 66);
+}
+
+section {
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+}
+
+section h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+section .cards {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 3rem;
+}
+
+section .cards .card {
+    width: 200px;
+    height: 200px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.411);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: rgb(20, 20, 80);
+}
+
+section .cards .card h2 {
+    font-size: 1.2em;
+}
+
+
+
+
+/* Spinner 1 */
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.spinner div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border:  8px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.spinner div:first-child {
+    border-top: 10px solid var(--primaryColor);
+    animation: spinnerOneFirst 1.5s linear infinite;
+    -webkit-animation: spinnerOneFirst 1.5s linear infinite;
+}
+
+.spinner div:last-child{
+    border-bottom: 10px solid var(--primaryColor);
+    animation: spinnerOneSecond 1.5s linear infinite;
+    -webkit-animation: spinnerOneSecond 1.5s linear infinite;
+}
+
+@keyframes spinnerOneFirst {
+    0% {
+        border-width: 10px;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    50% {
+        border-width: 1px;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+    100% {
+        border-width: 10px;
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+
+@keyframes spinnerOneSecond {
+    0% {
+        border-width: 1px;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    50% {
+        border-width: 10px;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+    }
+    100% {
+        border-width: 1px;
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+
+
+
+
+/* Spinner 2 */
+
+.spinnerSecond {
+    width: 110px;
+    height: 110px
+}
+
+.spinnerSecond div{
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border: 9px solid transparent;
+    border-bottom: 9px solid var(--primaryColor);
+    border-top: 9px solid var(--primaryColor);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: SpinnerSecond 2s linear infinite;
+    -webkit-animation: SpinnerSecond 2s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes SpinnerSecond {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+
+
+
+/* Bouncing Balls */
+
+.bouncingBalls {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.bouncingBalls .ball {
+    width: 20px;
+    height: 20px;
+    background-color: var(--primaryColor);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: bouncingBalls .5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+    -webkit-animation: bouncingBalls .5s cubic-bezier(.19,.57,.3,.98) infinite alternate;
+}
+
+.bouncingBalls .ball:nth-child(2) {
+    opacity: .8;
+    animation-delay: .1s;
+    
+}
+
+.bouncingBalls .ball:nth-child(3) {
+    opacity: .6;
+    animation-delay: .2s;
+}
+.bouncingBalls .ball:nth-child(4) {
+    opacity: .4;
+    animation-delay: .3s;
+}
+
+@keyframes bouncingBalls {
+    from {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+    to {
+        transform: translateY(-90px);
+        -webkit-transform: translateY(-90px);
+        -moz-transform: translateY(-90px);
+        -ms-transform: translateY(-90px);
+        -o-transform: translateY(-90px);
+    }
+}
+
+
+
+
+/* Perpetual Physic Animation */
+
+.card .circle {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 12px solid transparent;
+    border-right-color: var(--primaryColor);
+    border-bottom-color: var(--primaryColor);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    animation: circle 3s ease-in-out infinite alternate;
+    -webkit-animation: circle 3s ease-in-out infinite alternate;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}
+
+.card .circle .ball {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: ball 3s ease-in-out infinite alternate;
+    -webkit-animation: ball 3s ease-in-out infinite alternate;
+}
+
+.card .circle .ball::after {
+    content: '';
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+
+@keyframes ball {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(190deg);
+        -webkit-transform: rotate(190deg);
+        -moz-transform: rotate(190deg);
+        -ms-transform: rotate(190deg);
+        -o-transform: rotate(190deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}
+
+
+
+
+/* Flip Squares */
+
+.square {
+    width: 100px;
+    margin-left: 25px;
+    height: 100px;
+    position: relative;
+}
+
+.square div {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 255, 242, 0.911);
+    transform-origin: right bottom;
+    animation: flip 2s linear infinite;
+    -webkit-animation: flip 2s linear infinite;
+}
+
+.square div:nth-child(2) {
+    animation-delay: 1s;
+    opacity: .7;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0) rotateY(0);
+        -webkit-transform: rotateX(0) rotateY(0);
+        -moz-transform: rotateX(0) rotateY(0);
+        -ms-transform: rotateX(0) rotateY(0);
+        -o-transform: rotateX(0) rotateY(0);
+    }
+    25% {
+        transform: rotateX(0) rotateY(180deg);
+        -webkit-transform: rotateX(0) rotateY(180deg);
+        -moz-transform: rotateX(0) rotateY(180deg);
+        -ms-transform: rotateX(0) rotateY(180deg);
+        -o-transform: rotateX(0) rotateY(180deg);
+    }
+    50% {
+        transform: rotateX(180deg) rotateY(180deg);
+        -webkit-transform: rotateX(180deg) rotateY(180deg);
+        -moz-transform: rotateX(180deg) rotateY(180deg);
+        -ms-transform: rotateX(180deg) rotateY(180deg);
+        -o-transform: rotateX(180deg) rotateY(180deg);
+    }
+    75% {
+        transform: rotateX(180deg) rotateY(0);
+        -webkit-transform: rotateX(180deg) rotateY(0);
+        -moz-transform: rotateX(180deg) rotateY(0);
+        -ms-transform: rotateX(180deg) rotateY(0);
+        -o-transform: rotateX(180deg) rotateY(0);
+    }
+    100% {
+        transform: rotateX(0) rotateY(0);
+        -webkit-transform: rotateX(0) rotateY(0);
+        -moz-transform: rotateX(0) rotateY(0);
+        -ms-transform: rotateX(0) rotateY(0);
+        -o-transform: rotateX(0) rotateY(0);
+    }
+}
+
+
+
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1.1rem;
+}
+
+footer p span {
+    color: red;
+    font-size: 1.2rem;
+}
+
+footer p a {
+    color: var(--primaryColor);
+    text-decoration: none;
+}
+
+footer p a:hover {
+    color: tomato;
+}
+
+/* Responsive Breakpoint */
+
+@media (max-width: 770px) {
+    section {
+        flex-direction: column;
+    }
+}
